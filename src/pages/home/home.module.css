@@ -1,0 +1,87 @@
+#banner{
+    height: 70vh;
+    background-color: var(--fundo-claro);
+}
+#titulo{
+    color: var(--laranja-destaque);
+    display: flex;
+    justify-content: center;
+    font-size: 60px;
+}
+#img_principal{
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    margin-left: 25%;
+}
+
+#botoes_banner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#chamar_atendente{
+    color: var(--vinho);
+    font-size: 25px;
+    border-radius: 10;
+    border: none;
+    background-color: var(--laranja-destaque);
+    width: 22vw;
+    height: 60px;
+    margin-right: 1%;
+}
+
+#ver_cardapio{
+    color: var(--laranja-destaque);
+    font-size: 25px;
+    border-radius: 10;
+    border: none;
+    background-color: var(--vinho);
+    width: 22vw;
+    height: 60px;
+    margin-left: 1%;
+}
+
+#destaques{
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    background-color: var(--fundo-escuro);
+}
+
+#lanches_destaque{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+}
+
+#unidades{
+    height: 60vh;
+    background-color: var(--fundo-escuro);
+    display: flex;
+}
+
+#img_unidade{
+    height: 60%;
+    width: 35%;
+    border-radius: 15;
+}
+
+#unidades h2{
+    display: flex;
+    align-items: start;
+    color: aliceblue;
+    font-size: 40px;
+}
+
+#unidades p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: aliceblue;
+    font-size: 25px;
+}
+
+
