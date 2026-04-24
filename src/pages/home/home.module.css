@@ -43,45 +43,158 @@
     margin-left: 1%;
 }
 
-#destaques{
-    height: 70vh;
-    display: flex;
-    justify-content: center;
+.destaques {
     background-color: var(--fundo-escuro);
-}
 
-#lanches_destaque{
+    height: 70vh;
+
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 5%;
 }
 
-#unidades{
+
+.container_destaques {
+     display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+
+    gap: 20px;
+}
+
+.cards_direita {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    gap: 20px;
+}
+
+.card_destaque_mais_pedidos,
+.card_destaque_muito_bacon,
+.card_destaque_super_combos {
+    color: var(--fundo-claro);
+}
+
+.card_destaque_mais_pedidos {
+    background-image: url(../../../public/imgs/mais_pedidos.png);
+    height: 80%;
+    width: 500px;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+    padding: 20px;
+
+    font-size: 25px;
+
+    border-radius: 10px;
+}
+
+.card_destaque_muito_bacon {
+    background-image: url(../../../public/imgs/muito_bacon.png);
+    height: 40%;
+    width: 500px; 
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+    padding: 20px;
+
+    font-size: 25px;
+
+    border-radius: 10px;
+}
+
+.card_destaque_super_combos {
+    background-image: url(../../../public/imgs/super_combos.png);
+    height: 40%;
+    width: 500px; 
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+    padding: 20px;
+
+    font-size: 25px;
+
+    border-radius: 10px;
+}
+
+
+.destaque {
+    text-transform: uppercase;
+}
+
+
+.cardapio {
+    background-color: var(--fundo-claro);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.container_cardapio {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    padding: 75px 0;
+}
+
+.container_cardapio h2 {
+    color: var(--laranja-destaque);
+    font-size: 50px;
+    font-weight: 500;
+
+    text-transform: uppercase;
+}
+
+.unidades{
     height: 60vh;
     background-color: var(--fundo-escuro);
     display: flex;
 }
 
 #img_unidade{
-    height: 60%;
-    width: 35%;
+    height: 70%;
+    width: 30%;
     border-radius: 15;
+    align-self: center;
+    margin-left: 10%;
 }
 
-#unidades h2{
+.unidades h2{
     display: flex;
-    align-items: start;
+    align-items:start;
+    justify-content: center;
     color: aliceblue;
     font-size: 40px;
 }
 
-#unidades p{
+.unidades p{
     display: flex;
     align-items: center;
     justify-content: center;
     color: aliceblue;
     font-size: 25px;
+}
+
+#enderecos{
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+    margin-left: 10%;
 }
 
 

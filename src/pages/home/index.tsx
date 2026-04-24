@@ -1,6 +1,7 @@
 import Footer from "@/componentes/footer/footer";
 import Header from "@/componentes/header/header";
 import styles from "./home.module.css";
+import ListaProduto from "@/componentes/lista-produto/lista-produto";
 //ESTRUTURA PADRÃO!
 const Home = () => {
     return (
@@ -19,19 +20,35 @@ const Home = () => {
                     </button>
                 </div>
             </section>
-            <section id={styles.destaques}>
-                <div id={styles.lanches_destaque}>
-                    <img src="../imgs/mais_pedidos.png" alt="" />
-                    <img src="../imgs/muito_bacon.png" alt="" />
-                    <img src="../imgs/super_combos.png" alt="" />
-                </div>
-            </section>
-            <section id={styles.cardapio}>
-                <h2>Cardapio</h2>
-            </section>
-            <section id={styles.unidades}>
+           <section className={styles.destaques} id="destaques">
+                    <div className={`${styles.container_destaques} layout_guide`}>
+                        <article className={styles.card_destaque_mais_pedidos}>
+                            <p>Os queridinhos da galera</p>
+                            <p className={styles.destaque}>mais pedidos</p>
+                        </article>
+                        <div className={styles.cards_direita}>
+                            <article className={styles.card_destaque_muito_bacon}>
+                                <p>Lanches com</p>
+                                <p className={styles.destaque}>muito bacon</p>
+                            </article>
+                            <article className={styles.card_destaque_super_combos}>
+                                <p>Se tiver muita fome</p>
+                                <p className={styles.destaque}>Super combos</p>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            <section className={styles.cardapio} id="cardapio">
+                    <div className={`${styles.container_cardapio} layout_guide`}>
+                        <h2>Cardápio</h2>
+                        {/* chamar componente da lista */}
+                        <ListaProduto/>
+                    </div>
+                </section>
+            <section className={styles.unidades} id="unidades">
                 <img src="../imgs/unidade.jpeg" alt="" id={styles.img_unidade}/>
-                <h2>NOSSAS UNIDADES</h2>
+                <div id={styles.enderecos}>               
+                <h2>NOSSAS UNIDADES</h2>             
                 <p>
                   Centro – Av. Aurora, 742
                 </p>
@@ -44,6 +61,7 @@ const Home = () => {
                 <p>
                   Sul – Av. Nova Esperança, 910
                 </p>
+                </div>
             </section>
            </main>
            <Footer/>

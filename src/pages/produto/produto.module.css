@@ -1,0 +1,83 @@
+.main_produto{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main_produto h1{
+    color: var(--laranja-destaque);
+    font-size: 80px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+}
+
+.campo_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+.campo_form label{
+    font-weight: 500;
+    color: var(--fonte-escura);
+    font-size: 20px;
+}
+
+.campo_form input{
+    height: 45px;
+    border: none;
+    border-radius: 10px;
+    padding: 0 18px;
+    width: 500px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.30);
+}
+
+.campo_form_descricao{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+.campo_form_descricao label{
+    font-weight: 500;
+    color: var(--fonte-escura);
+    font-size: 20px;
+}
+
+.campo_form_descricao input{
+    height: 90px;
+    border: none;
+    border-radius: 10px;
+    padding: 0 18px;
+    width: 500px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.30);
+}
+
+.botao_cadastro{
+     width: 270px;
+    height: 55px;
+    border: none;
+    border-radius: 10px;
+    background: var(--laranja-destaque);
+    color: var(--vinho);
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.categoria{
+    color: var(--vinho);
+
+}
