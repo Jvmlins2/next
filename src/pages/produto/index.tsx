@@ -1,42 +1,111 @@
 import Footer from "@/componentes/footer/footer";
 import SubHeader from "@/componentes/sub-header/sub-header";
 import styles from "./produto.module.css"
-import Link from "next/link";
+import { useEffect, useState } from "react";
+import { listarCategoria } from "../api/categoriaService";
+import Toast from "@/componentes/toast/toast";
+import { cadastrarProduto } from "../api/produtoService";
+import { erro, notificacao } from "@/utils/toast";
+
+interface Categoria{
+    categoriaID: number,
+    nome: string
+}
 const Produto = () => {
-    return(
-        <>
-            <SubHeader/>
-            <main className={styles.main_produto}>
-                <article className={`${styles.form} layout_guide`}>
-                    <h1>CRIAR PRODUTO</h1>
-                    <div className={styles.campo_form}>
-                    <label htmlFor="nome">nome do produto</label>
-                    <input type="text" name="nome" placeholder="BBQ Especial" required/>
-                   </div>
-                   <div className={styles.campo_form_descricao}>
-                    <label htmlFor="descricao">Descrição</label>
-                    <input type="text" name="descricao" placeholder="Hamburguer com molho barbecue defumado com cebola caramelizada." required/>
-                   </div>
-                   <div className={styles.campo_form}>
-                    <label htmlFor="preco">Preço (R$)</label>
-                    <input type="text" name="preco" placeholder="40,00" required/>
-                   </div>
-                   <div className={styles.campo_form}>
-                    <label htmlFor="categoria">Categoria</label>
-                    <input type="text" name="categoria" placeholder="Selecione a categoria" required/>
-                    <a href="/produto#categoria" className={styles.categoria}>Adicionar Categoria</a>
-                   </div>
-                   <div className={styles.campo_form}>
-                    <label htmlFor="URL">URL da imagem</label>
-                    <input type="text" name="imagem" placeholder="https://unsplash.com/pt-br/fotografias/..." required/>
-                    <button className={styles.botao_cadastro}>Salvar</button>
-                   </div>
-                    
-                </article>
-            </main>
-            <Footer/>
-        </>
-    )
+
+  const [categorias, setCategorias] = useState<Categoria[]>([]);
+
+  const [nome, setNome] = useState<string>("");
+  const [descricao, setDescricao] = useState<string>("");
+  const [preco, setPreco] = useState<string>("");
+  const [imagem, setImagem] = useState<File | null>(null);
+  const [categoriasSelecionadas, setcategoriasSelecionadas] = useState<number[]>([]);
+
+  async function listarCatagoriaEmProduto() {
+    const lista = await listarCategoria();
+    setCategorias(lista.data);
+    console.log(lista.data);
+  }
+
+  async function Cadastrar(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    try{
+
+      const dados = {
+        nome,
+        descricao,
+        preco,
+        imagem,
+        categoriasId: categoriasSelecionadas
+      }
+
+      await Cadastrar
+
+      notificacao("Produto cadastrado!");
+
+    }catch(error: any){
+      erro(error.message);
+    }
+
+  }
+
+  //quando produto for renderizado, a funcao listarCatagoriaEmProduto acontece
+  useEffect(() => {
+    listarCatagoriaEmProduto();
+  }, [])
+
+  return (
+    <>
+      <SubHeader />
+      <Toast/>
+      <main className={styles.main_produto}>
+        <section className={`${styles.section_flex} layout_guide`}>
+          <h1>Criar produto</h1>
+          <form className={styles.formulario_produto} onSubmit={Cadastrar}>
+            <div className={styles.campo_form}>
+              <label htmlFor="">Nome do produto</label>
+              <input type="text"
+                value={nome} onChange={(e) => setNome(e.target.value)} />
+            </div>
+            <div className={styles.campo_form}>
+              <label htmlFor="">Descrição</label>
+              <textarea value={descricao} onChange={(e) => setDescricao(e.target.value)}></textarea>
+            </div>
+            <div className={styles.campo_form}>
+              <label htmlFor="">Preço(R$)</label>
+              <input type="text" value={preco} onChange={(e) => setPreco(e.target.value)} />
+            </div>
+            <div className={styles.campo_form}>
+              <label htmlFor="">Categoria</label>
+              <select multiple onChange={(e) => setcategoriasSelecionadas(
+                Array.from(e.target.selectedOptions).map((option) => Number(option.value))
+              )}>
+                {categorias.map((item) => (
+                  <option value={item.categoriaID} key={item.categoriaID}>{item.nome}</option>
+                )
+                )}
+              </select>
+
+              <a href="">Criar categoria</a>
+            </div>
+            <div className={styles.campo_form}>
+              <label htmlFor="">Imagem do produto</label>
+              <input
+                type="file"
+                onChange={(e) => {
+                  if (e.target.files && e.target.files[0]) {
+                    setImagem(e.target.files[0]);
+                  }
+                }}
+              />
+            </div>
+            <button id={styles.btn_salvar}>Salvar</button>
+          </form>
+        </section>
+      </main>
+      <Footer />
+    </>
+  )
 }
 
 export default Produto;

@@ -1,16 +1,20 @@
 .main_produto{
-    height: 100vh;
+    height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-bottom: 5%;
+    padding-top: 5%;
 }
 
 .main_produto h1{
     color: var(--laranja-destaque);
-    font-size: 80px;
+    font-size: 60px;
+    font-weight: 500;
     display: flex;
+    margin-top: 30%;
     justify-content: center;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
 }
 
 .campo_form{
@@ -18,8 +22,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 22px;
+    gap: 15px;
+    margin-bottom: 2px;
 }
 
 .campo_form label{
@@ -43,7 +47,7 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-    margin-bottom: 22px;
+    margin-bottom: 15px;
 }
 
 .campo_form_descricao label{
@@ -54,6 +58,15 @@
 
 .campo_form_descricao input{
     height: 90px;
+    border: none;
+    border-radius: 10px;
+    padding: 0 18px;
+    width: 500px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.30);
+}
+
+.campo_form select{
+    height: 45px;
     border: none;
     border-radius: 10px;
     padding: 0 18px;
@@ -74,10 +87,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 5%;
+    margin-bottom: 30%;
 }
 
 .categoria{
     color: var(--vinho);
-
+    margin-left: 24%;
 }
+
